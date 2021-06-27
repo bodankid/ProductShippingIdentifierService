@@ -1,0 +1,5 @@
+{
+  "eligibleSellers" : ["Tom", "Jack"],
+  "eligibleCategories": ["2","3"],
+  "minItemPrice": ["10.50"]
+}

@@ -1,0 +1,52 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+bootJar {
+    archiveBaseName = 'product-shipping-identifier-service'
+    archiveVersion = '1.0.0'
+}
+
+dependencies {
+    compile platform('org.springframework.boot:spring-boot-dependencies:2.4.5')
+
+    compile 'org.springframework.boot:spring-boot-starter'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.4.5'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.4.5'
+
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+    compile group: 'com.google.guava', name: 'guava', version: '23.0'
+
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.1'
+
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.6.1'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    afterTest { desc, result ->
+        logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+}
+
+springBoot {
+    mainClass.set('com.ebay.Application')
+}

@@ -1,0 +1,7 @@
+{
+  "newMinPrice": 16.00,
+  "sellersToBeAdded": ["cooper"],
+  "sellersToBeRemoved": ["peter"],
+  "categoriesToBeAdded": [5],
+  "categoriesToBeRemoved": [1]
+}
